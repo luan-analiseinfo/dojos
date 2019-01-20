@@ -1,39 +1,30 @@
 package me.fsn.filipe.refactoring;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+public  abstract class Veiculo {
 
-public class Veiculo {
+    private String placa;
 
-    private final String placa;
+    private String modelo;
 
-    private final String modelo;
-
-    private final TipoVeiculo tipoVeiculo;
-
-    private Veiculo(String placa, String modelo, TipoVeiculo tipoVeiculo) {
-        this.placa = placa;
-        this.modelo = modelo;
-        this.tipoVeiculo = tipoVeiculo;
-    }
-
-    public static Veiculo of(final String placa, final String modelo, final TipoVeiculo tipoVeiculo) {
-        checkNotNull(placa, "A placa não foi definida");
-        checkNotNull(modelo, "O modelo não foi definido");
-        checkNotNull(tipoVeiculo, "O tipo do veículo não foi definido");
-
-        return new Veiculo(placa, modelo, tipoVeiculo);
-    }
-
+    public abstract double tarifaAteMeiaHora();
+    public abstract double tarifaAteUmaHora();
+    public abstract double tarifaHoraAdicional();
+    public abstract double tarifaDiaria();
+	
     public String getPlaca() {
-        return placa;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public TipoVeiculo getTipoVeiculo() {
-        return tipoVeiculo;
-    }
-
+		return placa;
+	}
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+	public String getModelo() {
+		return modelo;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	
+    
+    
+    
 }
