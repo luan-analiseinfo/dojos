@@ -8,7 +8,10 @@ public class ContaAteUmaHora  extends Conta{
 
 	@Override
 	protected double calcularContaDeUtilizacao(long periodoEmMinutos) {
-		return getVeiculo().tarifaAteUmaHora();
+		if (periodoEmMinutos > 30 && periodoEmMinutos <= 60 ) {
+			return getVeiculo().tarifaAteUmaHora();
+		}
+		throw new IllegalArgumentException("Periodo inválido");
 	}
 
 }
